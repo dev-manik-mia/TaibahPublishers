@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taibah Publishers | Discover Your Next Great Read</title>
+    <meta name="description"
+        content="Discover a curated collection of literature, academic books, and spiritual guides at Taibah Publishers. Your gateway to knowledge and inspiration.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a434d',
+                        secondary: '#c99a5c',
+                        accent: '#f4f1ea',
+                        dark: '#0f172a',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .book-card:hover .book-image {
+            transform: translateY(-8px) rotate(-2deg);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-accent text-dark font-sans selection:bg-secondary selection:text-white">
+
+    <!-- Announcement Bar -->
+    <div class="bg-primary text-white py-2 text-center text-sm font-medium tracking-wide">
+        Free shipping on all orders over $50. Shop the Summer Collection now!
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass px-6 lg:px-12 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-12">
+            <a href="/" class="text-2xl font-serif font-bold tracking-tight text-primary">
+                TAIBAH<span class="text-secondary">.</span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#" class="hover:text-secondary transition-colors">Home</a>
+                <a href="#" class="hover:text-secondary transition-colors">Catalog</a>
+                <a href="#" class="hover:text-secondary transition-colors">New Arrivals</a>
+                <a href="#" class="hover:text-secondary transition-colors">About</a>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex items-center bg-white/50 border border-primary/10 rounded-full px-4 py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary/40" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" placeholder="Search books..."
+                    class="bg-transparent border-none focus:ring-0 text-sm ml-2 w-48 placeholder:text-primary/30">
+            </div>
+
+            <button class="relative hover:text-secondary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span
+                    class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+            </button>
+
+            <button class="lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[80vh] flex items-center overflow-hidden bg-[#e0ddd5]">
+            <div class="container mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in z-10">
+                    <span class="text-secondary font-medium tracking-[0.3em] uppercase mb-4 block">New Exclusive</span>
+                    <h1 class="text-5xl lg:text-7xl font-serif text-primary leading-tight mb-6">
+                        Illuminate Your <br> <span class="italic">Intellect & Soul</span>
+                    </h1>
+                    <p class="text-lg text-primary/70 mb-10 max-w-lg leading-relaxed">
+                        Curating exceptional literature that bridges tradition and modernity. Discover our latest
+                        publications and timeless classics.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#"
+                            class="bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-dark transition-all transform hover:scale-105">
+                            Shop Collections
+                        </a>
+                        <a href="#"
+                            class="border border-primary text-primary px-8 py-4 rounded-full font-medium hover:bg-primary hover:text-white transition-all">
+                            View New Arrivals
+                        </a>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-0 bg-secondary/10 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+                    <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?auto=format&fit=crop&q=80&w=800"
+                        alt="Featured Book"
+                        class="w-full max-w-md mx-auto drop-shadow-2xl rounded-lg transform rotate-3 hover:rotate-0 transition-transform duration-700">
+                </div>
+            </div>
+
+            <!-- Abstract background shape -->
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform translate-x-1/4"></div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-serif text-primary mb-4">Explore by Category</h2>
+                        <div class="h-1 w-20 bg-secondary"></div>
+                    </div>
+                    <a href="#" class="text-secondary font-semibold hover:underline mt-4 md:mt-0 tracking-wider">VIEW
+                        ALL GENRES →</a>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&q=80&w=400"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="History">
+                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
+                        <h3 class="relative text-white font-serif text-2xl">History</h3>
+                    </div>
+                    <div
+                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="Philosophy">
+                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
+                        <h3 class="relative text-white font-serif text-2xl">Philosophy</h3>
+                    </div>
+                    <div
+                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1474932430478-3a7fb9065ba0?auto=format&fit=crop&q=80&w=400"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="Literature">
+                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
+                        <h3 class="relative text-white font-serif text-2xl">Literature</h3>
+                    </div>
+                    <div
+                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="Academic">
+                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
+                        <h3 class="relative text-white font-serif text-2xl">Academic</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Books Section -->
+        <section class="py-24 bg-accent">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-16">
+                    <span class="text-secondary font-medium tracking-widest uppercase mb-4 block">Curated
+                        Selection</span>
+                    <h2 class="text-4xl lg:text-5xl font-serif text-primary">Trending Publications</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <!-- Book Card 1 -->
+                    <div class="book-card group">
+                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600"
+                                alt="Book Title"
+                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                            <div
+                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
+                                    Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-xl mb-1 text-primary">The Eternal Wisdom</h3>
+                        <p class="text-sm text-primary/60 mb-2">by Dr. Ibrahim Malik</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary">$29.99</span>
+                            <div class="flex text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 2 -->
+                    <div class="book-card group">
+                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600"
+                                alt="Book Title"
+                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                            <div
+                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
+                                    Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-xl mb-1 text-primary">Modern Philosophy</h3>
+                        <p class="text-sm text-primary/60 mb-2">by Prof. Sarah Jenkins</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary">$24.50</span>
+                            <div class="flex text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary/10"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 3 -->
+                    <div class="book-card group">
+                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
+                            <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=600"
+                                alt="Book Title"
+                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                            <div
+                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
+                                    Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-xl mb-1 text-primary">Echoes of the Past</h3>
+                        <p class="text-sm text-primary/60 mb-2">by Faisal Rahman</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary">$18.00</span>
+                            <div class="flex text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 4 -->
+                    <div class="book-card group">
+                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
+                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=600"
+                                alt="Book Title"
+                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                            <div
+                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                <button
+                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
+                                    Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-xl mb-1 text-primary">The Art of Calligraphy</h3>
+                        <p class="text-sm text-primary/60 mb-2">by Maryam Aziz</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary">$35.00</span>
+                            <div class="flex text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="py-24 bg-primary text-white overflow-hidden relative">
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-4xl lg:text-5xl font-serif mb-6">Join the Literary Community</h2>
+                    <p class="text-lg text-white/70 mb-10">Subscribe to receive updates on new arrivals, exclusive
+                        author interviews, and literary events.</p>
+                    <form class="flex flex-col md:flex-row gap-4">
+                        <input type="email" placeholder="Your email address"
+                            class="flex-1 bg-white/10 border border-white/20 rounded-full px-8 py-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <button
+                            class="bg-secondary text-primary font-bold px-10 py-4 rounded-full hover:bg-white transition-colors">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Decorative circle -->
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 border border-white/10 rounded-full"></div>
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-[80px]"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-24 pb-12 border-t border-primary/5">
+        <div class="container mx-auto px-6 lg:px-12 grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+            <div>
+                <a href="/" class="text-2xl font-serif font-bold text-primary mb-6 block uppercase tracking-tighter">
+                    TAIBAH<span class="text-secondary">.</span>
+                </a>
+                <p class="text-primary/60 leading-relaxed mb-6">
+                    Taibah Publishers is dedicated to bringing you the finest selection of books that inspire, educate,
+                    and enlighten.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-all">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-all">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-primary font-bold mb-6">Shop</h4>
+                <ul class="space-y-4 text-primary/60">
+                    <li><a href="#" class="hover:text-secondary">New Arrivals</a></li>
+                    <li><a href="#" class="hover:text-secondary">Best Sellers</a></li>
+                    <li><a href="#" class="hover:text-secondary">Pre-orders</a></li>
+                    <li><a href="#" class="hover:text-secondary">Gift Cards</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-primary font-bold mb-6">Company</h4>
+                <ul class="space-y-4 text-primary/60">
+                    <li><a href="#" class="hover:text-secondary">About Us</a></li>
+                    <li><a href="#" class="hover:text-secondary">Our Authors</a></li>
+                    <li><a href="#" class="hover:text-secondary">Contact</a></li>
+                    <li><a href="#" class="hover:text-secondary">News</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-primary font-bold mb-6">Support</h4>
+                <ul class="space-y-4 text-primary/60">
+                    <li><a href="#" class="hover:text-secondary">Shipping Info</a></li>
+                    <li><a href="#" class="hover:text-secondary">Returns & Exchanges</a></li>
+                    <li><a href="#" class="hover:text-secondary">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-secondary">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div
+            class="container mx-auto px-6 lg:px-12 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary/40">
+            <p>© 2026 Taibah Publishers. All rights reserved.</p>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-primary">Terms of Service</a>
+                <a href="#" class="hover:text-primary">Privacy Policy</a>
+                <a href="#" class="hover:text-primary">Cookie Settings</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
