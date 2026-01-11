@@ -4,393 +4,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taibah Publishers | Discover Your Next Great Read</title>
+    <title>Taibah Publishers | Online Bookstore</title>
     <meta name="description"
-        content="Discover a curated collection of literature, academic books, and spiritual guides at Taibah Publishers. Your gateway to knowledge and inspiration.">
+        content="Explore and buy your favorite books from Taibah Publishers. Huge collection of Islamic, Academic, and General books.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a434d',
-                        secondary: '#c99a5c',
-                        accent: '#f4f1ea',
-                        dark: '#0f172a',
+                        primary: '#7bc150',
+                        secondary: '#234344',
+                        light: '#f8fafc',
                     },
                     fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
                         sans: ['Outfit', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        .glass {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        .search-focused {
+            box-shadow: 0 0 0 3px rgba(123, 193, 80, 0.2);
         }
 
-        .book-card:hover .book-image {
-            transform: translateY(-8px) rotate(-2deg);
+        .product-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #7bc150;
+            transition: width 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
         }
     </style>
 </head>
 
-<body class="bg-accent text-dark font-sans selection:bg-secondary selection:text-white">
+<body class="bg-slate-50 text-secondary font-sans">
 
-    <!-- Announcement Bar -->
-    <div class="bg-primary text-white py-2 text-center text-sm font-medium tracking-wide">
-        Free shipping on all orders over $50. Shop the Summer Collection now!
+    <!-- Top Utility Bar -->
+    <div
+        class="bg-secondary text-white text-[12px] py-2 px-6 lg:px-12 flex justify-between items-center border-b border-white/10">
+        <div class="flex items-center gap-6">
+            <span class="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                +880 1234 567890
+            </span>
+            <span class="flex items-center gap-1 scale-0 md:scale-100 opacity-0 md:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                contact@taibahpublishers.com
+            </span>
+        </div>
+        <div class="flex items-center gap-6 font-medium">
+            <a href="#" class="hover:text-primary transition-colors">Track Order</a>
+            <a href="#" class="hover:text-primary transition-colors">Login / Register</a>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 glass px-6 lg:px-12 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-12">
-            <a href="/" class="text-2xl font-serif font-bold tracking-tight text-primary">
-                TAIBAH<span class="text-secondary">.</span>
+    <!-- Main Header -->
+    <header class="sticky top-0 z-50 glass-header border-b border-gray-200">
+        <div class="container mx-auto px-6 lg:px-12 py-5 flex items-center justify-between gap-8">
+            <!-- Logo -->
+            <a href="/" class="flex-shrink-0 group">
+                <h1 class="text-3xl font-serif font-bold text-secondary group-hover:text-primary transition-colors">
+                    TAIBAH<span class="text-primary italic">.</span>
+                </h1>
             </a>
-            <div class="hidden lg:flex items-center gap-8 text-sm font-medium uppercase tracking-widest">
-                <a href="#" class="hover:text-secondary transition-colors">Home</a>
-                <a href="#" class="hover:text-secondary transition-colors">Catalog</a>
-                <a href="#" class="hover:text-secondary transition-colors">New Arrivals</a>
-                <a href="#" class="hover:text-secondary transition-colors">About</a>
+
+            <!-- Search Bar -->
+            <div class="hidden md:flex flex-grow max-w-2xl">
+                <div class="relative w-full flex">
+                    <input type="text" placeholder="Search for books by title, author, or ISBN..."
+                        class="w-full px-5 py-2.5 rounded-l-lg border-2 border-primary/20 border-r-0 focus:border-primary focus:outline-none focus:ring-0 text-sm transition-all bg-white">
+                    <button
+                        class="bg-primary hover:bg-[#6ab33f] text-white px-8 rounded-r-lg font-bold text-sm tracking-wide transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        SEARCH
+                    </button>
+                </div>
+            </div>
+
+            <!-- Icons -->
+            <div class="flex items-center gap-6">
+                <button class="relative hover:text-primary transition-colors p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    <span
+                        class="absolute top-1 right-1 w-4 h-4 bg-primary text-white text-[10px] rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+                <button class="relative hover:text-primary transition-colors p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    <span
+                        class="absolute top-1 right-1 w-4 h-4 bg-primary text-white text-[10px] rounded-full flex items-center justify-center font-bold">3</span>
+                </button>
+                <div class="md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </div>
             </div>
         </div>
 
-        <div class="flex items-center gap-6">
-            <div class="hidden md:flex items-center bg-white/50 border border-primary/10 rounded-full px-4 py-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary/40" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input type="text" placeholder="Search books..."
-                    class="bg-transparent border-none focus:ring-0 text-sm ml-2 w-48 placeholder:text-primary/30">
+        <!-- Lower Header / Nav -->
+        <nav class="hidden md:block border-t border-gray-100 bg-white">
+            <div class="container mx-auto px-6 lg:px-12 flex items-center gap-10">
+                <button class="flex items-center gap-3 bg-secondary text-white px-6 py-3 font-medium text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                    ALL CATEGORIES
+                </button>
+                <div class="flex items-center gap-8 py-3 text-[13px] font-bold tracking-wider">
+                    <a href="#" class="nav-link relative text-primary">HOME</a>
+                    <a href="#" class="nav-link relative hover:text-primary transition-colors">BEST SELLERS</a>
+                    <a href="#" class="nav-link relative hover:text-primary transition-colors">NEW ARRIVALS</a>
+                    <a href="#" class="nav-link relative hover:text-primary transition-colors">AUTHORS</a>
+                    <a href="#" class="nav-link relative hover:text-primary transition-colors">PUBLISHERS</a>
+                    <a href="#" class="nav-link relative hover:text-primary transition-colors">PROMOTIONS</a>
+                </div>
             </div>
-
-            <button class="relative hover:text-secondary transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-                <span
-                    class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
-            </button>
-
-            <button class="lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="relative h-[80vh] flex items-center overflow-hidden bg-[#e0ddd5]">
-            <div class="container mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-in z-10">
-                    <span class="text-secondary font-medium tracking-[0.3em] uppercase mb-4 block">New Exclusive</span>
-                    <h1 class="text-5xl lg:text-7xl font-serif text-primary leading-tight mb-6">
-                        Illuminate Your <br> <span class="italic">Intellect & Soul</span>
-                    </h1>
-                    <p class="text-lg text-primary/70 mb-10 max-w-lg leading-relaxed">
-                        Curating exceptional literature that bridges tradition and modernity. Discover our latest
-                        publications and timeless classics.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
+        <section class="bg-white py-12">
+            <div class="container mx-auto px-6 lg:px-12 grid lg:grid-cols-4 gap-8">
+                <!-- Sidemenu (boisodai style) -->
+                <div
+                    class="hidden lg:block lg:col-span-1 bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm">
+                    <div class="space-y-1">
                         <a href="#"
-                            class="bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-dark transition-all transform hover:scale-105">
-                            Shop Collections
+                            class="flex items-center justify-between px-4 py-3 bg-slate-50 border-l-4 border-primary text-primary font-medium hover:bg-slate-50 transition-colors">
+                            <span>Islamic Literature</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
                         </a>
                         <a href="#"
-                            class="border border-primary text-primary px-8 py-4 rounded-full font-medium hover:bg-primary hover:text-white transition-all">
-                            View New Arrivals
+                            class="flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors">
+                            <span>History & Culture</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors">
+                            <span>Academic Books</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors">
+                            <span>Children's World</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors">
+                            <span>Health & Lifestyle</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors">
+                            <span>View All Genres</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
                         </a>
                     </div>
                 </div>
-                <div class="relative hidden lg:block">
-                    <div class="absolute inset-0 bg-secondary/10 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-                    <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?auto=format&fit=crop&q=80&w=800"
-                        alt="Featured Book"
-                        class="w-full max-w-md mx-auto drop-shadow-2xl rounded-lg transform rotate-3 hover:rotate-0 transition-transform duration-700">
+
+                <!-- Main Slider Area -->
+                <div class="lg:col-span-3 space-y-8">
+                    <div class="relative rounded-2xl overflow-hidden h-[450px] bg-[#e6f4ea] flex items-center group">
+                        <div class="px-12 z-10 max-w-xl">
+                            <span
+                                class="bg-primary text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter mb-4 inline-block">Flash
+                                Sale - 25% Off</span>
+                            <h2 class="text-5xl font-serif font-bold text-secondary mb-6 leading-tight">Enlighten Your
+                                Mind With <br><span class="text-primary italic">Deep Knowledge.</span></h2>
+                            <p class="text-lg text-secondary/70 mb-8 font-light">Explore over 5,000+ titles ranging from
+                                traditional wisdom to contemporary academic excellence.</p>
+                            <a href="#"
+                                class="inline-block bg-primary hover:bg-[#6ab33f] text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-1">
+                                Shop Discovery
+                            </a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800"
+                            class="absolute right-0 top-0 h-full w-1/2 object-cover rounded-l-[100px] opacity-20 lg:opacity-100"
+                            alt="Slider Image">
+                    </div>
                 </div>
             </div>
-
-            <!-- Abstract background shape -->
-            <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform translate-x-1/4"></div>
         </section>
 
-        <!-- Categories Section -->
-        <section class="py-24 bg-white">
-            <div class="container mx-auto px-6 lg:px-12">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+        <!-- Feature Points -->
+        <section class="pb-16 bg-white">
+            <div class="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="flex items-center gap-4 p-6 rounded-xl border border-gray-100 bg-slate-50/50">
+                    <div class="bg-primary/10 p-3 rounded-full text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
                     <div>
-                        <h2 class="text-3xl lg:text-4xl font-serif text-primary mb-4">Explore by Category</h2>
-                        <div class="h-1 w-20 bg-secondary"></div>
+                        <h4 class="font-bold text-sm">Free Delivery</h4>
+                        <p class="text-xs text-gray-500">Orders over $50</p>
                     </div>
-                    <a href="#" class="text-secondary font-semibold hover:underline mt-4 md:mt-0 tracking-wider">VIEW
-                        ALL GENRES →</a>
                 </div>
-
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div
-                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?auto=format&fit=crop&q=80&w=400"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            alt="History">
-                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
-                        <h3 class="relative text-white font-serif text-2xl">History</h3>
+                <div class="flex items-center gap-4 p-6 rounded-xl border border-gray-100 bg-slate-50/50">
+                    <div class="bg-primary/10 p-3 rounded-full text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                     </div>
-                    <div
-                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            alt="Philosophy">
-                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
-                        <h3 class="relative text-white font-serif text-2xl">Philosophy</h3>
+                    <div>
+                        <h4 class="font-bold text-sm">Quick Response</h4>
+                        <p class="text-xs text-gray-500">24/7 Dedicated Support</p>
                     </div>
-                    <div
-                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1474932430478-3a7fb9065ba0?auto=format&fit=crop&q=80&w=400"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            alt="Literature">
-                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
-                        <h3 class="relative text-white font-serif text-2xl">Literature</h3>
+                </div>
+                <div class="flex items-center gap-4 p-6 rounded-xl border border-gray-100 bg-slate-50/50">
+                    <div class="bg-primary/10 p-3 rounded-full text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
                     </div>
-                    <div
-                        class="group cursor-pointer overflow-hidden rounded-2xl relative h-64 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            alt="Academic">
-                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/60 transition-colors"></div>
-                        <h3 class="relative text-white font-serif text-2xl">Academic</h3>
+                    <div>
+                        <h4 class="font-bold text-sm">Secure Payment</h4>
+                        <p class="text-xs text-gray-500">Fast & Safe Transaction</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-6 rounded-xl border border-gray-100 bg-slate-50/50">
+                    <div class="bg-primary/10 p-3 rounded-full text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Easy Returns</h4>
+                        <p class="text-xs text-gray-500">10 Days Return Policy</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Books Section -->
-        <section class="py-24 bg-accent">
+        <!-- Product Listing Section -->
+        <section class="py-16">
             <div class="container mx-auto px-6 lg:px-12">
-                <div class="text-center mb-16">
-                    <span class="text-secondary font-medium tracking-widest uppercase mb-4 block">Curated
-                        Selection</span>
-                    <h2 class="text-4xl lg:text-5xl font-serif text-primary">Trending Publications</h2>
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <h3 class="text-2xl font-serif font-bold mb-2">Editor's Picks</h3>
+                        <div class="h-1 w-20 bg-primary"></div>
+                    </div>
+                    <a href="#"
+                        class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        View More Books <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    <!-- Book Card 1 -->
-                    <div class="book-card group">
-                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
-                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600"
-                                alt="Book Title"
-                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-8">
+                    <!-- Product Card 1 -->
+                    <div
+                        class="product-card bg-white rounded-xl overflow-hidden shadow-sm transition-all group flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[3/4]">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                alt="Book">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded">-20%</span>
                             <div
-                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                class="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <button
-                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
-                                    Add to Cart</button>
+                                    class="bg-white text-secondary p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all hover:bg-primary hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <h3 class="font-serif text-xl mb-1 text-primary">The Eternal Wisdom</h3>
-                        <p class="text-sm text-primary/60 mb-2">by Dr. Ibrahim Malik</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-bold text-primary">$29.99</span>
-                            <div class="flex text-secondary">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-[10px] text-primary font-bold uppercase mb-1">Philosophy</p>
+                            <h4
+                                class="font-bold text-sm mb-1 line-clamp-2 hover:text-primary transition-colors cursor-pointer">
+                                The Journey of Faith and Reason</h4>
+                            <p class="text-xs text-gray-400 mb-4">by Abdullah Yusuf</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-primary font-bold">$12.50</span>
+                                    <span class="text-[10px] text-gray-400 line-through">$15.00</span>
+                                </div>
+                                <button
+                                    class="bg-slate-100 hover:bg-primary hover:text-white p-2 rounded-lg transition-colors group/btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Book Card 2 -->
-                    <div class="book-card group">
-                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
-                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600"
-                                alt="Book Title"
-                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                    <!-- Repeat for 4 more items -->
+                    <div
+                        class="product-card bg-white rounded-xl overflow-hidden shadow-sm transition-all group flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[3/4]">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=400"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                alt="Book">
                             <div
-                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                class="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <button
-                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
-                                    Add to Cart</button>
+                                    class="bg-white text-secondary p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all hover:bg-primary hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <h3 class="font-serif text-xl mb-1 text-primary">Modern Philosophy</h3>
-                        <p class="text-sm text-primary/60 mb-2">by Prof. Sarah Jenkins</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-bold text-primary">$24.50</span>
-                            <div class="flex text-secondary">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary/10"
-                                    fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-[10px] text-primary font-bold uppercase mb-1">History</p>
+                            <h4
+                                class="font-bold text-sm mb-1 line-clamp-2 hover:text-primary transition-colors cursor-pointer">
+                                Echoes of the Golden Era</h4>
+                            <p class="text-xs text-gray-400 mb-4">by Dr. Malik Faisal</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-primary font-bold">$18.99</span>
+                                </div>
+                                <button
+                                    class="bg-slate-100 hover:bg-primary hover:text-white p-2 rounded-lg transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Book Card 3 -->
-                    <div class="book-card group">
-                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
-                            <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=600"
-                                alt="Book Title"
-                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                    <div
+                        class="product-card bg-white rounded-xl overflow-hidden shadow-sm transition-all group flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[3/4]">
+                            <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=400"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                alt="Book">
+                            <span
+                                class="absolute top-3 left-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded">HOT</span>
                             <div
-                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                class="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <button
-                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
-                                    Add to Cart</button>
+                                    class="bg-white text-secondary p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all hover:bg-primary hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <h3 class="font-serif text-xl mb-1 text-primary">Echoes of the Past</h3>
-                        <p class="text-sm text-primary/60 mb-2">by Faisal Rahman</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-bold text-primary">$18.00</span>
-                            <div class="flex text-secondary">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-[10px] text-primary font-bold uppercase mb-1">Literature</p>
+                            <h4
+                                class="font-bold text-sm mb-1 line-clamp-2 hover:text-primary transition-colors cursor-pointer">
+                                Whispers of the Heart</h4>
+                            <p class="text-xs text-gray-400 mb-4">by Fatima Al-Zahra</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-primary font-bold">$10.00</span>
+                                </div>
+                                <button
+                                    class="bg-slate-100 hover:bg-primary hover:text-white p-2 rounded-lg transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Book Card 4 -->
-                    <div class="book-card group">
-                        <div class="relative mb-6 overflow-hidden rounded-lg bg-[#e5e7eb] pt-[140%]">
-                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=600"
-                                alt="Book Title"
-                                class="book-image absolute top-0 left-0 w-full h-full object-cover shadow-xl transition-transform duration-500">
+                    <div
+                        class="product-card bg-white rounded-xl overflow-hidden shadow-sm transition-all group flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[3/4]">
+                            <img src="https://images.unsplash.com/photo-1544948074-297293a9b4bb?auto=format&fit=crop&q=80&w=400"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                alt="Book">
                             <div
-                                class="absolute bottom-4 left-0 right-0 px-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                class="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <button
-                                    class="w-full bg-primary text-white py-3 rounded-md text-sm font-bold shadow-lg">Quick
-                                    Add to Cart</button>
+                                    class="bg-white text-secondary p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all hover:bg-primary hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <h3 class="font-serif text-xl mb-1 text-primary">The Art of Calligraphy</h3>
-                        <p class="text-sm text-primary/60 mb-2">by Maryam Aziz</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-bold text-primary">$35.00</span>
-                            <div class="flex text-secondary">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-[10px] text-primary font-bold uppercase mb-1">Poetry</p>
+                            <h4
+                                class="font-bold text-sm mb-1 line-clamp-2 hover:text-primary transition-colors cursor-pointer">
+                                The Morning Breeze</h4>
+                            <p class="text-xs text-gray-400 mb-4">by Jalaluddin Rumi (Trans.)</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-primary font-bold">$14.50</span>
+                                </div>
+                                <button
+                                    class="bg-slate-100 hover:bg-primary hover:text-white p-2 rounded-lg transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="product-card bg-white rounded-xl overflow-hidden shadow-sm transition-all group flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[3/4]">
+                            <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?auto=format&fit=crop&q=80&w=400"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                alt="Book">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded">NEW</span>
+                            <div
+                                class="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button
+                                    class="bg-white text-secondary p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all hover:bg-primary hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-[10px] text-primary font-bold uppercase mb-1">Spirituality</p>
+                            <h4
+                                class="font-bold text-sm mb-1 line-clamp-2 hover:text-primary transition-colors cursor-pointer">
+                                Inner Peace & Clarity</h4>
+                            <p class="text-xs text-gray-400 mb-4">by Imam Al-Ghazali</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-primary font-bold">$22.00</span>
+                                </div>
+                                <button
+                                    class="bg-slate-100 hover:bg-primary hover:text-white p-2 rounded-lg transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -398,96 +558,128 @@
             </div>
         </section>
 
-        <!-- Newsletter Section -->
-        <section class="py-24 bg-primary text-white overflow-hidden relative">
-            <div class="container mx-auto px-6 lg:px-12 relative z-10">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="text-4xl lg:text-5xl font-serif mb-6">Join the Literary Community</h2>
-                    <p class="text-lg text-white/70 mb-10">Subscribe to receive updates on new arrivals, exclusive
-                        author interviews, and literary events.</p>
-                    <form class="flex flex-col md:flex-row gap-4">
-                        <input type="email" placeholder="Your email address"
-                            class="flex-1 bg-white/10 border border-white/20 rounded-full px-8 py-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-secondary">
-                        <button
-                            class="bg-secondary text-primary font-bold px-10 py-4 rounded-full hover:bg-white transition-colors">
-                            SUBSCRIBE
-                        </button>
-                    </form>
+        <!-- Newsletter Bar -->
+        <section class="mt-16 bg-primary py-12">
+            <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="text-white">
+                    <h3 class="text-2xl font-serif font-bold mb-1">Stay Connected With Us</h3>
+                    <p class="opacity-80 text-sm">Subscribe for new arrivals, exclusive discounts and literary news.</p>
                 </div>
+                <form class="flex w-full max-w-lg">
+                    <input type="email" placeholder="Enter your email address..."
+                        class="w-full px-5 py-3 rounded-l-lg focus:outline-none text-sm">
+                    <button
+                        class="bg-secondary text-primary font-bold px-8 py-3 rounded-r-lg hover:bg-[#1a3334] transition-colors whitespace-nowrap">
+                        SUBSCRIBE
+                    </button>
+                </form>
             </div>
-            <!-- Decorative circle -->
-            <div class="absolute -bottom-24 -left-24 w-96 h-96 border border-white/10 rounded-full"></div>
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-[80px]"></div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white pt-24 pb-12 border-t border-primary/5">
-        <div class="container mx-auto px-6 lg:px-12 grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-            <div>
-                <a href="/" class="text-2xl font-serif font-bold text-primary mb-6 block uppercase tracking-tighter">
-                    TAIBAH<span class="text-secondary">.</span>
-                </a>
-                <p class="text-primary/60 leading-relaxed mb-6">
-                    Taibah Publishers is dedicated to bringing you the finest selection of books that inspire, educate,
-                    and enlighten.
-                </p>
-                <div class="flex gap-4">
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-all">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-all">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg>
-                    </a>
+    <footer class="bg-secondary pt-20 pb-10 text-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/5 pb-16">
+                <!-- Branding -->
+                <div>
+                    <h2 class="text-3xl font-serif font-bold mb-6">
+                        TAIBAH<span class="text-primary italic">.</span>
+                    </h2>
+                    <p class="text-sm leading-relaxed text-slate-400 mb-8">
+                        Taibah Publishers is a dedicated platform for seekers of knowledge. We curate the finest
+                        collection of literature across diverse genres to inspire the soul.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/5 p-3 rounded-lg hover:bg-primary hover:text-white transition-all">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-white/5 p-3 rounded-lg hover:bg-primary hover:text-white transition-all">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Links -->
+                <div>
+                    <h4 class="font-bold mb-8 text-lg flex items-center gap-2">
+                        <span class="w-2 h-2 bg-primary"></span> QUICK LINKS
+                    </h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Career Opportunities</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Author Interviews</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Latest Promotions</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Support Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div>
+                    <h4 class="font-bold mb-8 text-lg flex items-center gap-2">
+                        <span class="w-2 h-2 bg-primary"></span> CATEGORIES
+                    </h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Islamic History</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Philosophical Works</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Children's Education</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Quran Studies</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Arabic Literature</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold mb-8 text-lg flex items-center gap-2">
+                        <span class="w-2 h-2 bg-primary"></span> CONNECT
+                    </h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="text-primary mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm text-slate-400">Road 12, Block C, Banani, <br> Dhaka-1213, Bangladesh</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm text-slate-400">+880 1234 567890</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-primary font-bold mb-6">Shop</h4>
-                <ul class="space-y-4 text-primary/60">
-                    <li><a href="#" class="hover:text-secondary">New Arrivals</a></li>
-                    <li><a href="#" class="hover:text-secondary">Best Sellers</a></li>
-                    <li><a href="#" class="hover:text-secondary">Pre-orders</a></li>
-                    <li><a href="#" class="hover:text-secondary">Gift Cards</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-primary font-bold mb-6">Company</h4>
-                <ul class="space-y-4 text-primary/60">
-                    <li><a href="#" class="hover:text-secondary">About Us</a></li>
-                    <li><a href="#" class="hover:text-secondary">Our Authors</a></li>
-                    <li><a href="#" class="hover:text-secondary">Contact</a></li>
-                    <li><a href="#" class="hover:text-secondary">News</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-primary font-bold mb-6">Support</h4>
-                <ul class="space-y-4 text-primary/60">
-                    <li><a href="#" class="hover:text-secondary">Shipping Info</a></li>
-                    <li><a href="#" class="hover:text-secondary">Returns & Exchanges</a></li>
-                    <li><a href="#" class="hover:text-secondary">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-secondary">FAQ</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div
-            class="container mx-auto px-6 lg:px-12 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary/40">
-            <p>© 2026 Taibah Publishers. All rights reserved.</p>
-            <div class="flex gap-8">
-                <a href="#" class="hover:text-primary">Terms of Service</a>
-                <a href="#" class="hover:text-primary">Privacy Policy</a>
-                <a href="#" class="hover:text-primary">Cookie Settings</a>
+            <!-- Bottom Row -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="text-[12px] text-slate-500">
+                    &copy; 2026 TAIBAH PUBLISHERS. All Rights Reserved. Designed by AdvanceIT.
+                </p>
+                <!-- Payment Logos -->
+                <div class="flex gap-3 opacity-60">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                        class="h-5 grayscale hover:grayscale-0 transition-all" alt="Mastercard">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+                        class="h-5 grayscale hover:grayscale-0 transition-all" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/BKash_Logo.svg/1200px-BKash_Logo.svg.png"
+                        class="h-5 grayscale hover:grayscale-0 transition-all" alt="bKash">
+                </div>
             </div>
         </div>
     </footer>
